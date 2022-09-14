@@ -1,0 +1,9 @@
+.employee-card {
+    box-shadow: 5px 5px 5px #808080 ;
+    margin: 1rem;
+    border: none;
+}
+
+.card-body {
+    background-color: rgb(240, 246, 240);
+}
