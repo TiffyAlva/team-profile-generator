@@ -1,2 +1,7 @@
-# team-profile-generator-challenge-10
-Module 10
+# Team Profile Generator
+
+## Visuals: 
+
+![](./output/assets/images/team-profile-generator.jpg)
+
+
