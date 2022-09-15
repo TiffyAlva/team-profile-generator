@@ -2,7 +2,19 @@ const inquirer = require ("inquirer")
 const Manager = require("./lib/Manager")
 const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
+const inquirer = require("inquirer"); //
+const path = require("path"); //
+const fs = require("fs"); //
+
+const OUTPUT_DIR = pathresolve(_dirname, "output"); //
+const outputPath = path.join(OUT_DIR, "index.html"); //
+
+const  Employee = require("./output/index.html") // ?
+
+
 var employeeArray = []
+
+
 function mainQuestions(){
     inquirer.prompt([{
         type: "list",
@@ -149,7 +161,13 @@ function createIntern(){
 }
 
 
+function createFile() { //
+    console.log("Team is created!") //
+
+    fs.writeFileSync(outputPath, Employee(employeeArray), "UTF-8") //
+}
 
 
 
-mainQuestions()
+
+mainQuestions();
