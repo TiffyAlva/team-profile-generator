@@ -2,14 +2,16 @@ const inquirer = require ("inquirer")
 const Manager = require("./lib/Manager")
 const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
-const inquirer = require("inquirer"); //
-const path = require("path"); //
-const fs = require("fs"); //
+const template = require("./src/template")
+const fs = require("fs");
+// const inquirer = require("inquirer"); //
+// const path = require("path"); //
+// const fs = require("fs"); //
 
-const OUTPUT_DIR = pathresolve(_dirname, "output"); //
-const outputPath = path.join(OUT_DIR, "index.html"); //
+// const OUTPUT_DIR = pathresolve(_dirname, "output"); //
+// const outputPath = path.join(OUT_DIR, "index.html"); //
 
-const  Employee = require("./output/index.html") // ?
+// const  Employee = require("./output/index.html") // ?
 
 
 var employeeArray = []
@@ -36,10 +38,17 @@ function mainQuestions(){
             createEngineer()
         }
         if(answers.role == "Intern"){     //Repeat Steps
-            //Create Intern
+            createIntern()
         }
         if(answers.role == "None"){
             //Generating Html //take advantage of 'employeeArray'
+            console.log(employeeArray)
+            const result = template(employeeArray)
+            console.log (result) 
+            fs.writeFile("./output/team.html", result, function(){
+                console.log("Team created!")
+            })
+
         }
     })
 }
@@ -161,11 +170,11 @@ function createIntern(){
 }
 
 
-function createFile() { //
-    console.log("Team is created!") //
+// // function createFile() { //
+// //     console.log("Team is created!") //
 
-    fs.writeFileSync(outputPath, Employee(employeeArray), "UTF-8") //
-}
+// //     fs.writeFileSync(outputPath, Employee(employeeArray), "UTF-8") //
+// }
 
 
 

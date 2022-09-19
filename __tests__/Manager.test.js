@@ -9,7 +9,7 @@ test("Create office number", () => {
 
 test("Testing role", () => {
     const testValue = "Manager";
-    const e = new "Manager";
+    const e = new Manager("Foo", 1, "test@test.com", testValue);
     expect(e.getRole()).toBe(testValue);
 });
 
