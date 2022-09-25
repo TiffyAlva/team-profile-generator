@@ -1,17 +1,12 @@
+//Classes 
 const inquirer = require ("inquirer")
 const Manager = require("./lib/Manager")
 const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
 const template = require("./src/template")
+//Dependency
 const fs = require("fs");
-// const inquirer = require("inquirer"); //
-// const path = require("path"); //
-// const fs = require("fs"); //
 
-// const OUTPUT_DIR = pathresolve(_dirname, "output"); //
-// const outputPath = path.join(OUT_DIR, "index.html"); //
-
-// const  Employee = require("./output/index.html") // ?
 
 
 var employeeArray = []
@@ -30,18 +25,17 @@ function mainQuestions(){
     .then((answers)=>{
         console.log(answers)
         if(answers.role == "Manager"){
-            //Create Manager
             createManager()
+            
         } 
         if(answers.role == "Engineer"){
-            //Create Engineer
             createEngineer()
+            
         }
-        if(answers.role == "Intern"){     //Repeat Steps
+        if(answers.role == "Intern"){     
             createIntern()
         }
         if(answers.role == "None"){
-            //Generating Html //take advantage of 'employeeArray'
             console.log(employeeArray)
             const result = template(employeeArray)
             console.log (result) 
@@ -52,10 +46,11 @@ function mainQuestions(){
         }
     })
 }
+            
 
 
 
-
+//Manager
 function createManager(){
     inquirer.prompt([
         {
@@ -93,7 +88,7 @@ function createManager(){
     })
 }
 
-
+//Engineer
 function createEngineer(){
     inquirer.prompt([
         {
@@ -131,7 +126,7 @@ function createEngineer(){
     })
 }
 
-
+//Intern
 function createIntern(){
     inquirer.prompt([
         {
@@ -170,11 +165,7 @@ function createIntern(){
 }
 
 
-// // function createFile() { //
-// //     console.log("Team is created!") //
 
-// //     fs.writeFileSync(outputPath, Employee(employeeArray), "UTF-8") //
-// }
 
 
 
