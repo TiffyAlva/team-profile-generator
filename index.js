@@ -3,13 +3,15 @@ const inquirer = require ("inquirer")
 const Manager = require("./lib/Manager")
 const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
-const template = require("./src/template")
+//const template = require("./src/template")
+const path = require("path")
 //Dependency
 const fs = require("fs");
+const render = require("./lib/template_copy")
+const outputPath = path.resolve(__dirname, "output", "team.html")
 
 
-
-var employeeArray = []
+const employeeArray = []
 
 
 function mainQuestions(){
@@ -24,26 +26,41 @@ function mainQuestions(){
     
     .then((answers)=>{
         console.log(answers)
-        if(answers.role == "Manager"){
-            createManager()
-            
-        } 
-        if(answers.role == "Engineer"){
-            createEngineer()
-            
-        }
-        if(answers.role == "Intern"){     
-            createIntern()
-        }
-        if(answers.role == "None"){
-            console.log(employeeArray)
-            const result = template(employeeArray)
-            console.log (result) 
-            fs.writeFile("./output/team.html", result, function(){
-                console.log("Team created!")
-            })
 
+        switch (answers.role) {
+            case "Manager":
+                createManager()
+                break;
+            case "Engineer":
+                createEngineer()
+                break;
+            case "Intern":
+                createIntern()
+                break;
+            default:
+                buildTeam()
+                break;
         }
+        // if(answers.role == "Manager"){
+        //     createManager()
+            
+        // } 
+        // if(answers.role == "Engineer"){
+        //     createEngineer()
+            
+        // }
+        // if(answers.role == "Intern"){     
+        //     createIntern()
+        // }
+        // if(answers.role == "None"){
+        //     //console.log('EMPLOYEE ARRAY',employeeArray)
+        //     //const result = template(employeeArray)
+        //     //console.log ('RESULTS',result) 
+        //     //fs.writeFileSync("./output/team.html", result, function(){
+        //       //  console.log("Team created!")
+        //    // })
+        //     buildTeam()
+        // }
     })
 }
             
@@ -145,11 +162,18 @@ function createIntern(){
             type:"input",
             name:"email",
             message:"What is the Intern's email?",
+            validate: answer =>{
+                console.log(answer)
+                //answer must be a email address
+                // if anwer == regex expression
+                //if answer is blank then send message please answer the questions
+                //else return true
+            }
         },
 
         {
             type:"input",
-            name:"github",
+            name:"school",
             message:"What's the Intern's school?",
         },
     ])
@@ -165,7 +189,9 @@ function createIntern(){
 }
 
 
-
+function buildTeam(){
+    fs.writeFileSync(outputPath, render(employeeArray), "utf-8")
+}
 
 
 
