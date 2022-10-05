@@ -161,14 +161,14 @@ function createIntern(){
         {
             type:"input",
             name:"email",
-            message:"What is the Intern's email?",
-            validate: answer =>{
-                console.log(answer)
-                //answer must be a email address
-                // if anwer == regex expression
-                //if answer is blank then send message please answer the questions
-                //else return true
-            }
+            message:"What is the Intern's email?"
+            // validate: answer =>{
+            //     console.log(answer)
+            //     //answer must be a email address
+            //     // if anwer == regex expression
+            //     //if answer is blank then send message please answer the questions
+            //     //else return true
+            // }
         },
 
         {
