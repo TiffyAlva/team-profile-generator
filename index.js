@@ -41,26 +41,7 @@ function mainQuestions(){
                 buildTeam()
                 break;
         }
-        // if(answers.role == "Manager"){
-        //     createManager()
-            
-        // } 
-        // if(answers.role == "Engineer"){
-        //     createEngineer()
-            
-        // }
-        // if(answers.role == "Intern"){     
-        //     createIntern()
-        // }
-        // if(answers.role == "None"){
-        //     //console.log('EMPLOYEE ARRAY',employeeArray)
-        //     //const result = template(employeeArray)
-        //     //console.log ('RESULTS',result) 
-        //     //fs.writeFileSync("./output/team.html", result, function(){
-        //       //  console.log("Team created!")
-        //    // })
-        //     buildTeam()
-        // }
+       
     })
 }
             
@@ -87,6 +68,7 @@ function createManager(){
             name:"email",
             message:"What is the Manager's email?",
         },
+
 
         {
             type:"input",
@@ -162,13 +144,7 @@ function createIntern(){
             type:"input",
             name:"email",
             message:"What is the Intern's email?"
-            // validate: answer =>{
-            //     console.log(answer)
-            //     //answer must be a email address
-            //     // if anwer == regex expression
-            //     //if answer is blank then send message please answer the questions
-            //     //else return true
-            // }
+         
         },
 
         {
